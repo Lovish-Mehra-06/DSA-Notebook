@@ -1,6 +1,9 @@
 #include <vector>
 #include <algorithm>
+#include <climits>
 using namespace std;
+
+// https://leetcode.com/problems/maximum-subarray/description/
 
 //! ------------------------------------- brute force approach -------------------------------------
 // Time complexity: O(n^2)
@@ -21,12 +24,31 @@ public:
             }
         }
         return maxSum;
-    }
+    }   
 };
 
 //! ------------------------------------- Kadane's Algorithm -------------------------------------
 // Time complexity: O(n)
 // Space complexity: O(1)
+// HELP --> https://www.youtube.com/watch?v=NUWAXbSlsws
+
+int maxSubArray(vector<int> &nums)
+{
+    // Initialize variables to track the current subarray sum and the maximum sum
+    int currentSum = nums[0];
+    int maxSum = nums[0];
+
+    for (int i = 1; i < nums.size(); i++) // Iterate through the array, starting from the second element
+    {
+        currentSum = max(nums[i], currentSum + nums[i]); // Decide whether to extend the current subarray or start a new one
+        maxSum = max(maxSum, currentSum);                // Update the global maximum sum if the current sum is larger
+    }
+
+    return maxSum; // Return the maximum sum found
+}
+
+// -------------------------------------
+
 class Solution
 {
 public:

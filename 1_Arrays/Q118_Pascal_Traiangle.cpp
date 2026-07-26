@@ -160,5 +160,3 @@ public:
         return ans;
     }
 };
-
-// https://chatgpt.com/c/6a044bff-3dc4-8321-9d57-9c6afc596687
