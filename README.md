@@ -10,7 +10,7 @@ A curated collection of **Data Structures & Algorithms** solutions implemented i
 - Build strong problem-solving skills
 - Prepare for Software Engineering interviews
 - Maintain consistency through daily practice
-
+<!-- 
 ---
 
 ## 📊 Progress
@@ -21,7 +21,7 @@ A curated collection of **Data Structures & Algorithms** solutions implemented i
 | 🎯 Striver SDE Problems | 0 / 191 |
 | 🟢 Easy                 |       0 |
 | 🟡 Medium               |       0 |
-| 🔴 Hard                 |       0 |
+| 🔴 Hard                 |       0 | -->
 
 ---
 
