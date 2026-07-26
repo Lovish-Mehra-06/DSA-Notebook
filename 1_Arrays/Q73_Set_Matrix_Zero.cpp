@@ -1,7 +1,18 @@
-//! Set Matrix Zeroes
-//! https://leetcode.com/problems/set-matrix-zeroes/
-#include <vector>
+//!
+//!
+/*
+ * Problem Link : https://leetcode.com/problems/set-matrix-zeroes/
+ ! Problem Name : Set Matrix Zeroes
+ * Problem No.  : 73
+ * Platform     : LeetCode
+ * Source       : Striver SDE Sheet
+ * Difficulty   : Medium
+ */
+
 #include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 /*

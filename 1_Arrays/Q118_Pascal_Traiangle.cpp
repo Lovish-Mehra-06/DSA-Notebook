@@ -1,5 +1,15 @@
+/*
+ * Problem Link : https://leetcode.com/problems/pascals-triangle/
+ ! Problem Name : Pascal's Triangle
+ * Problem No.  : 118
+ * Platform     : LeetCode
+ * Source       : Striver SDE Sheet
+ * Difficulty   : Easy
+ */
+
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 // https://leetcode.com/problems/pascals-triangle/

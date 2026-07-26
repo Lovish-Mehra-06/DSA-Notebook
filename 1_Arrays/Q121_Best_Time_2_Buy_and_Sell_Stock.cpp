@@ -1,9 +1,20 @@
+/*
+ * Problem Link : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+ ! Problem Name : Best Time to Buy and Sell Stock
+ * Problem No.  : 121
+ * Platform     : LeetCode
+ * Source       : Striver SDE Sheet
+ * Difficulty   : Easy
+ */
+
 #include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 /*
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 ?   Time  complexity:  O(n)
 ?   Space complexity:  O(1)
 Approach name: ✅ Dynamic Programming (Greedy variant)

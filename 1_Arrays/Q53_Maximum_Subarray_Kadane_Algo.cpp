@@ -1,9 +1,16 @@
+/*
+ * Problem Link : https://leetcode.com/problems/maximum-subarray/description/
+ * Problem Name : Maximum Subarray
+ * Problem No.  : 53
+ * Platform     : LeetCode
+ * Source       : Striver SDE Sheet
+ * Difficulty   : Easy
+ */
+
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <climits>
 using namespace std;
-
-// https://leetcode.com/problems/maximum-subarray/description/
 
 //! ------------------------------------- brute force approach -------------------------------------
 // Time complexity: O(n^2)
@@ -24,7 +31,7 @@ public:
             }
         }
         return maxSum;
-    }   
+    }
 };
 
 //! ------------------------------------- Kadane's Algorithm -------------------------------------

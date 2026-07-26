@@ -1,3 +1,18 @@
+/*
+ * Problem Link : https://leetcode.com/problems/sort-colors/description/
+ ! Problem Name : Sort Colors
+ * Problem No.  : 75
+ * Platform     : LeetCode
+ * Source       : Striver SDE Sheet
+ * Difficulty   : Medium
+ */
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 /*
 TODO -------------------------- 75. Sort Colors --------------------------
