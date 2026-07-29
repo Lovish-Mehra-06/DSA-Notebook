@@ -97,6 +97,56 @@ public:
         return ans;
     }
 };
+/*
+! -------------------------------- 2. Brute Force ------------------    *FIXED*
+
+apply the formula of binomial coefficient i.e. (r-1)!/(c-1)!(r-c)!.
+
+*Instead of computing full factorials (which can overflow and be slow), we can multiply and divide in a loop to compute the coefficient efficiently.
+
+?   Time Complexity  : O(N³), each element is computed using the nCr formula.
+?   Space Complexity : O(N²), to store the Pascal's Triangle.
+
+?   Auxiliary Space  : O(1)
+?   Total Space      : O(N²), including the output.
+
+
+*/
+class Solution
+{
+public:
+    long long findPascalElement(int r, int c)
+    {
+        int n = r - 1;
+        int k = c - 1;
+
+        long long result = 1;
+
+        for (int i = 0; i < k; i++)
+        {
+            result *= (n - i);
+            result /= (i + 1);
+        }
+        return result;
+    }
+
+    vector<vector<int>> generate(int numRows)
+    {
+        vector<vector<int>> ans;
+
+        for (int i = 0; i < numRows; i++)
+        {
+            vector<int> row;
+
+            for (int k = 0; k <= i; k++)
+            {
+                row.push_back(findPascalElement(i + 1, k + 1));
+            }
+            ans.push_back(row);
+        }
+        return ans;
+    }
+};
 
 //! -------------------------------- 3. Dynamic Programming ------------------ Ai
 //!   Time  complexity:  O(numRows^2)
