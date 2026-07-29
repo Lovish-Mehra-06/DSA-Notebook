@@ -39,23 +39,19 @@ public:
     int thirdMax(vector<int> &nums)
     {
         sort(nums.begin(), nums.end());
-
-        int cnt = 1;
-        int ans = nums.back();
-
+        int counter = 1;
         for (int i = nums.size() - 2; i >= 0; i--)
         {
             if (nums[i] != nums[i + 1])
-            {
-                cnt++;
-                if (cnt == 3)
-                    return nums[i];
+            { // handles duplicates
+                counter++;
+                if (counter == 3)
+                    return nums[i]; // return 3rd largest no
             }
         }
-        return nums.back();
+        return nums.back(); // gives ans max no.
     }
 };
-
 /*
 ! ---------------------------------- Approach 2 ------ Three Variables -------------------------
 reference: Q628_maximum-product-of-three-numbers.cpp
@@ -117,9 +113,7 @@ public:
 
         for (int x : nums)
         {
-
-            // Skip duplicates  *** Imp --> (I' Forgot)
-            if (x == first || x == second || x == third)
+            if (x == first || x == second || x == third) // Skip duplicates  *** Imp --> (I' Forgot)
                 continue;
 
             if (x > first)
@@ -138,7 +132,6 @@ public:
                 third = x;
             }
         }
-
         return (third == LLONG_MIN) ? first : third;
     }
 };
