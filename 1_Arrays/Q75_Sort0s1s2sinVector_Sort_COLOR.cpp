@@ -58,6 +58,10 @@ public:
 *Time complexity  : O(n)
 *Space complexity : O(1)
 */
+// ! ----------------------- 2.2 -----------------------
+// ?   Approach         : Counting Sort / Frequency Array
+// ?   Time Complexity  : O(N), one pass to count + one pass to overwrite.
+// ?   Space Complexity : O(1), frequency array of fixed size 3.
 class Solution
 {
 public:
@@ -81,6 +85,10 @@ public:
 };
 
 //*  Try (My Code)  Yes It Works :)
+// ! ----------------------- 2.1 -----------------------
+// ?   Approach         : Counting / Frequency Counting
+// ?   Time Complexity  : O(N), one pass to count + one pass to overwrite.
+// ?   Space Complexity : O(1), only three counter variables are used.
 class Solution
 {
 public:
@@ -189,4 +197,62 @@ Because the swapped element might be:
  - 0 → should be moved to left
  - 2 → should go again to right
 So we must recheck that element.
+! ----------------------- Optimal -----------------------
+?   Approach         : Dutch National Flag Algorithm (Three Pointers)
+?   Time Complexity  : O(N), each element is processed at most once.
+?   Space Complexity : O(1), in-place sorting.
+
+* Algorithm
+1. Initialize three pointers:
+   - l  -> next position for 0.
+   - i  -> current element.
+   - r  -> next position for 2.
+
+2. Traverse the array while i <= r.
+
+3. If nums[i] == 0:
+   - Swap nums[i] with nums[l].
+   - Increment both l and i.
+
+4. Else if nums[i] == 2:
+   - Swap nums[i] with nums[r].
+   - Decrement r only (don't increment i).
+
+5. Else (nums[i] == 1):
+   - Increment i.
+
+6. Repeat until i > r.
+
+7. The array is sorted with:
+   - 0s in the beginning,
+   - 1s in the middle,
+   - 2s at the end.
 */
+class Solution
+{
+public:
+    void sortColors(vector<int> &nums)
+    {
+        // l  -> next position for 0
+        // i  -> current element
+        // r  -> next position for 2
+        int l = 0, i = 0, r = nums.size() - 1;
+
+        while (i <= r)
+        {
+            if (nums[i] == 0) // Place 0 at the beginning
+            {
+                swap(nums[i], nums[l]);
+                l++;
+                i++;
+            }
+            else if (nums[i] == 2) // Place 2 at the end
+            {
+                swap(nums[i], nums[r]);
+                r--;
+            }
+            else // Element is 1, already in correct region
+                i++;
+        }
+    }
+};
