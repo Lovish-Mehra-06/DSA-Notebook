@@ -65,9 +65,40 @@ public:
     }
 };
 
-/*Optimal Solution
- */
+/*
+TODO:   Optimal Solution
 
+?   Time:  O(n)
+?   Space: O(1)
+
+* Algorithm: First Missing Positive
+
+1. Start.
+2. Let `n = nums.size()`.
+3. Traverse the array from `i = 0` to `n-1`.
+4. For each element, keep swapping it to its correct position while:
+   - `nums[i] > 0`
+   - `nums[i] <= n`
+   - `nums[i]` is not already at its correct position.
+5. The correct position of a number `x` is index `x - 1`.
+6. After rearranging, traverse the array again.
+7. For each index `i`:
+   - If `nums[i] != i + 1`, return `i + 1`.
+8. If every position contains its correct value, return `n + 1`.
+9. Stop.
+
+ Example
+nums = [3, 4, -1, 1]
+
+After rearranging:
+[1, -1, 3, 4]
+
+Index:     0   1   2   3
+Expected:  1   2   3   4
+Actual:    1  -1   3   4
+                ↑
+          missing = 2
+*/
 class Solution
 {
 public:
