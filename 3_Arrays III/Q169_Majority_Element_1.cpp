@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 /*
@@ -23,6 +24,27 @@ Algo:
 -For each selected element, run another loop to count its occurrences in the given array.
 -If the occurrence of any element is greater than the floor of (N/2), return that element immediately as the majority element.
 */
+class Solution
+{
+public:
+    // Function to find the majority element in an array
+    int majorityElement(vector<int> &nums)
+    {
+        int n = nums.size();
+        for (int i = 0; i < n; i++)
+        {
+            int cnt = 0;
+            for (int j = 0; j < n; j++)
+            {
+                if (nums[j] == nums[i])
+                    cnt++;
+            }
+            if (cnt > (n / 2))
+                return nums[i];
+        }
+        return -1;
+    }
+};
 
 /*
 ! Better Approach 2:  Using Hash Map
@@ -32,11 +54,34 @@ and check in end which one's occurrence is > n/2 that is our answer.
 ? Time : O(n)
 ? Space: O(n)
 */
+class Solution
+{
+public:
+    int majorityElement(vector<int> &nums)
+    {
+        int n = nums.size();
+
+        // Hash map to store element counts
+        unordered_map<int, int> mp;
+
+        // Count occurrences of each element
+        for (int num : nums)
+            mp[num]++;
+
+        //  Iterate through the map to find the majority element
+        for (auto &pair : mp)
+        {
+            if (pair.second > n / 2)
+                return pair.first;
+        }
+        return -1; // Return -1 if no majority element is found
+    }
+};
 
 /*
 ! Approach 3: Sort, & then n/2th element will be our answer
 ? Time : O(n log n)  for sorting
-? Space: O(1)*
+? Space: O(1)* \(O(\log n)\) (For recursion stack framework)
 */
 class Solution
 {
