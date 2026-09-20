@@ -1,6 +1,6 @@
 # 📘 DSA Notebook
 
-A curated collection of **Data Structures & Algorithms** solutions implemented in **C++**, primarily following **Striver's SDE Sheet**, with additional problems from LeetCode, GeeksforGeeks, and other coding platforms.
+A curated collection of **Data Structures & Algorithms** solutions implemented in **C++**, primarily following **NeetCode 250**.
 
 ---
 
@@ -10,47 +10,35 @@ A curated collection of **Data Structures & Algorithms** solutions implemented i
 - Build strong problem-solving skills
 - Prepare for Software Engineering interviews
 - Maintain consistency through daily practice
-<!-- 
----
-
-## 📊 Progress
-
-| Metric                  |   Count |
-| ----------------------- | ------: |
-| ✅ Problems Solved      |       0 |
-| 🎯 Striver SDE Problems | 0 / 191 |
-| 🟢 Easy                 |       0 |
-| 🟡 Medium               |       0 |
-| 🔴 Hard                 |       0 | -->
 
 ---
 
 ## 🛣️ Primary Roadmap
 
-This repository primarily follows the **[Striver's SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)** as the main roadmap for Data Structures & Algorithms interview preparation.
+This repository primarily follows the **[NeetCode 250 - Complete Beginner Study Plan](https://neetcode.io/practice/practice/neetcode250)** as the main roadmap for Data Structures & Algorithms interview preparation.
 
 ---
 
 ## 📂 Topics Covered
 
-- Arrays
-- Binary Search
-- Strings
-- Linked List
-- Stack
-- Queue
-- Recursion
-- Backtracking
-- Trees
-- Binary Search Tree
-- Heap
-- Hashing
-- Sliding Window
+- Arrays & Hashing
 - Two Pointers
-- Greedy
+- Sliding Window
+- Stack
+- Binary Search
+- String
+- Linked List
+- Trees
+- Tries
+- Heap / Priority Queue
+- Backtracking
 - Graphs
-- Dynamic Programming
-- Trie
+- Advanced Graphs
+- 1-D Dynamic Programming
+- 2-D Dynamic Programming
+- Greedy
+- Intervals
+- Math & Geometry
 - Bit Manipulation
 
 ---
@@ -58,7 +46,6 @@ This repository primarily follows the **[Striver's SDE Sheet](https://takeuforwa
 ## 💻 Language
 
 - C++
-- Standard Template Library (STL)
 
 ---
 
