@@ -7,9 +7,7 @@
  * Difficulty   : Medium
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 /*
@@ -68,11 +66,41 @@ public:
 /*
 ! ---------------------------------Optimal Solution------------------------------
 
-?   Time Complexity  : `O( )`
-?   Space Complexity : `O( )`
-
-*### Intuition
+?   Time Complexity  : `O(n)`
+?   Space Complexity : `O(n)`
 
 *### Algorithm
-
+Insert all elements into an unordered_set.
+For each number, check if num - 1 exists.
+If it doesn't, num is the start of a sequence.
+Keep checking num + 1, num + 2, etc.
+Track the maximum sequence length.
 */
+class Solution
+{
+public:
+    int longestConsecutive(vector<int> &nums)
+    {
+        unordered_set<int> st(nums.begin(), nums.end());
+        int ans = 0;
+
+        for (int num : st)
+        {
+            if (!st.count(num - 1))
+            {
+                int curr = num;
+                int len = 1;
+
+                while (st.count(curr + 1))
+                {
+                    curr++;
+                    len++;
+                }
+
+                ans = max(ans, len);
+            }
+        }
+
+        return ans;
+    }
+};

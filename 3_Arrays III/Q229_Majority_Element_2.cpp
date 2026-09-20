@@ -239,7 +239,6 @@ using namespace std;
 class Solution
 {
 public:
-    // Function to find majority elements in an array
     vector<int> majorityElementTwo(vector<int> &nums)
     {
 
