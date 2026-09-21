@@ -19,6 +19,50 @@ Time Complexity: O(N), where N is the size of the array. This is because we trav
 
 Space Complexity: O(1), as we are using only a constant amount of space for the slow and fast pointers, regardless of the input size.
 */
+class Solution
+{
+public:
+    int findDuplicate(vector<int> &nums)
+    {
+        int slow = nums[0], fast = nums[0];
+        do
+        {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+        slow = nums[0];
+        while (slow != fast)
+        {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+};
+
+class Solution // Optimal 3.2
+{
+public:
+    int findDuplicate(vector<int> &nums)
+    {
+        int slow = 0, fast = 0;
+        while (true)
+        {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+            if (slow == fast)
+                break;
+        }
+        int slow2 = 0;
+        while (true)
+        {
+            slow = nums[slow];
+            slow2 = nums[slow2];
+            if (slow == slow2)
+                return slow;
+        }
+    }
+};
 
 /*
 ! --------------------- 1. Brute Force Approach --------------------------
@@ -39,9 +83,7 @@ public:
         for (int i = 0; i < nums.size() - 1; i++)
         {
             if (nums[i] == nums[i + 1])
-            {
                 return nums[i];
-            }
         }
         return -1;
     }
@@ -68,21 +110,14 @@ int findDuplicate(vector<int> &nums)
 {
     int n = nums.size();
     vector<int> freq(n + 1, 0);
-    for (int i = 0; i < n; i++) // scan elements
+    for (int i = 0; i < n; i++)
     {
         // return current value if already seen
         if (freq[nums[i]] == 0)
-        {
-            // mark as seen
-            freq[nums[i]] += 1;
-        }
+            freq[nums[i]] += 1; // mark as seen
         else
-        {
-            // duplicate found
-            return nums[i];
-        }
+            return nums[i]; // duplicate found
     }
-    // fallback if none (per original)
     return 0;
 }
 
