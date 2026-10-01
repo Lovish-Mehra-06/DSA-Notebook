@@ -63,16 +63,12 @@ public:
             for (int j = 0; j <= i; j++)
             {
                 if (height[j] > maxLeft)
-                {
                     maxLeft = height[j];
-                }
             }
             for (int j = i; j < n; j++)
             {
                 if (height[j] > maxRight)
-                {
                     maxRight = height[j];
-                }
             }
             totalWater += min(maxLeft, maxRight) - height[i]; // Directly added
         }
