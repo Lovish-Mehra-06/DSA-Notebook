@@ -78,24 +78,23 @@ public:
         for (int i = 0; i < nums.size(); i++)
         {
             count[nums[i]]--;
-            if (i > 0 && nums[i] == nums[i - 1])
+            if (i > 0 && nums[i] == nums[i - 1]) // Skip duplicate first numbers
                 continue;
 
             for (int j = i + 1; j < nums.size(); j++)
             {
                 count[nums[j]]--;
-                if (j > i + 1 && nums[j] == nums[j - 1])
+                if (j > i + 1 && nums[j] == nums[j - 1]) // Skip duplicate second numbers
                     continue;
 
-                int target = -(nums[i] + nums[j]);
+                int target = -(nums[i] + nums[j]); // Find the required third number
                 if (count[target] > 0)
                     res.push_back({nums[i], nums[j], target});
             }
 
-            for (int j = i + 1; j < nums.size(); j++)
+            for (int j = i + 1; j < nums.size(); j++) // Restore frequencies for the next iteration
                 count[nums[j]]++;
         }
-
         return res;
     }
 };
@@ -115,9 +114,9 @@ public:
 
         for (int i = 0; i < nums.size(); i++)
         {
-            if (nums[i] > 0)
+            if (nums[i] > 0) // No triplet can sum to zero if the first number is positive
                 break;
-            if (i > 0 && nums[i] == nums[i - 1])
+            if (i > 0 && nums[i] == nums[i - 1]) // Skip duplicate first numbers
                 continue;
 
             int l = i + 1, r = nums.size() - 1;
@@ -126,15 +125,17 @@ public:
                 int sum = nums[l] + nums[r] + nums[i];
 
                 if (sum > 0)
-                    r--;
+                    r--; // Decrease sum
                 else if (sum < 0)
-                    l++;
+                    l++; // Increase sum
                 else
                 {
+                    // Found a valid triplet
                     res.push_back({nums[i], nums[l], nums[r]});
                     l++;
                     r--;
 
+                    // Skip duplicate second numbers
                     while (l < r && nums[l] == nums[l - 1])
                         l++;
                 }
