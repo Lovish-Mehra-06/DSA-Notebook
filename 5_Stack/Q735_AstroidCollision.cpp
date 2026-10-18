@@ -62,35 +62,37 @@ public:
     vector<int> asteroidCollision(vector<int> &asteroids)
     {
         int n = asteroids.size();
-        int j = -1;
+        int j = -1; // Top index of the stack
 
         for (int &a : asteroids)
         {
+            // Collision occurs when previous moves right and current moves left
             while (j >= 0 && asteroids[j] > 0 && a < 0)
             {
                 if (asteroids[j] > abs(a))
                 {
-                    a = 0;
+                    a = 0; // Current asteroid explodes
                     break;
                 }
                 else if (asteroids[j] == abs(a))
                 {
-                    j--;
+                    j--; // Both asteroids explode
                     a = 0;
                     break;
                 }
                 else
                 {
-                    j--;
+                    j--; // Previous asteroid explodes; check for more collisions
                 }
             }
+
             if (a != 0)
             {
-                asteroids[++j] = a;
+                asteroids[++j] = a; // Keep the surviving asteroid
             }
         }
 
-        asteroids.resize(j + 1);
+        asteroids.resize(j + 1); // Remove remaining elements beyond the stack
         return asteroids;
     }
 };
