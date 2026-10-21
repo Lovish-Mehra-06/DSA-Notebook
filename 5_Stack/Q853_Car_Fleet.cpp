@@ -145,7 +145,29 @@ class Solution
 public:
     int carFleet(int target, vector<int> &position, vector<int> &speed)
     {
-        // Code....
+        int n = position.size();
+        vector<pair<int, int>> cars; // {position, speed}
+        for (int i = 0; i < n; i++)
+            cars.push_back({position[i], speed[i]});
+
+        sort(cars.rbegin(), cars.rend()); // Sort cars by position in descending order, Cars closest to the target come first
+
+        int fleets = 1; // Initially, the car closest to target forms one fleet
+
+        double prevTime = (double)(target - cars[0].first) / cars[0].second; // Time taken by the first car to reach the target
+
+        for (int i = 1; i < n; i++) // Process the remaining cars from front to back
+        {
+            double currTime = (double)(target - cars[i].first) / cars[i].second; // Calculate the current car's time to reach target
+
+            if (currTime > prevTime) // If this car takes longer, it cannot catch the fleet ahead.  So, it forms a new fleet
+            {
+                fleets++;
+                prevTime = currTime; // Update the time of the fleet now ahead
+            }
+            // Otherwise, this car catches the fleet ahead. It joins that fleet, so NO new fleet is counted
+        }
+        return fleets; // Return the total number of fleets
     }
 };
 
